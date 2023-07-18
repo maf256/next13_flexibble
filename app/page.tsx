@@ -1,7 +1,11 @@
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <section className="flex-start flex-xol paddings mb-16">
+        <h1>Categories</h1>
+        <h1>Post</h1>
+        <h1>Loadmore</h1>
+    </section>
   )
 }
 
