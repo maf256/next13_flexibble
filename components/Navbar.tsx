@@ -2,6 +2,7 @@ import { NavLinks } from '@/constant'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import AuthProviders from './AuthProviders'
 
 const Navbar = () => {
     const session = {}
@@ -33,8 +34,7 @@ const Navbar = () => {
                         </Link>
                     </>
                 ) : (
-                    <>
-                    </>
+                    <AuthProviders />
                 )}
             </div>
         </nav>
