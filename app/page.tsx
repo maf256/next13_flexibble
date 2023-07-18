@@ -6,7 +6,7 @@ const Home = () => {
         <h1>Post</h1>
         <h1>Loadmore</h1>
     </section>
-  )
+  ) 
 }
 
 export default Home
