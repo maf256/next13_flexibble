@@ -1,10 +1,11 @@
 import { getServerSession } from "next-auth";
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions, User } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";
 import GoogleProvider from 'next-auth/providers/google'
 import jsonwebToken from 'jsonwebtoken'
 import { JWT } from 'next-auth/jwt'
 import { log } from "console";
+import { SessionInterface } from '@/common.types'
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -33,10 +34,16 @@ export const authOptions: NextAuthOptions = {
         async signIn({ user } : { user: AdapterUser | User}) {
             try {
                 return true
-             }catch(err: any) {
+            }catch(err: any) {
                 console.log(err)
                 return false
             }
         }
     }
+}
+
+export async function getCurrentUser() {
+    const session = await getServerSession(authOptions) as SessionInterface
+
+    return session
 }
